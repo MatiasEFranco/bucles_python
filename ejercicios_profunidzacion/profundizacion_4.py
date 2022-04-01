@@ -10,6 +10,9 @@
 # de mucho más tiempo para abordar estos temas por su cuenta.
 # Requiere mayor tiempo de dedicación e investigación autodidacta.
 
+from audioop import avg
+
+
 temp_dataloger = [12.8, 18.6, 14.5, 20.8, 12.1, 21.2, 13.5, 18.6,
                   14.7, 19.6, 11.2, 18.4]
 
@@ -51,18 +54,49 @@ temperatura_len = 0         # Aquí debe almacenar cuantas temperatuas hay en la
 
 # Colocar el bucle aqui......
 
+for i in temp_dataloger:
+
+    if (temperatura_max is None) or (i > temperatura_max):
+
+        temperatura_max = i
+
+    elif (temperatura_min is None) or (i < temperatura_min):
+
+        temperatura_min = i
+
+    temperatura_sumatoria += i
+
+    temperatura_len += 1
+
+
 # Al finalizar el bucle compare si el valor que usted calculó para
 # temperatura_max y temperatura_min coincide con el que podría calcular
 # usando la función "max" y la función "min" de python
 # función "max" --> https://www.w3schools.com/python/ref_func_max.asp
 # función "min" --> https://www.w3schools.com/python/ref_func_min.asp
 
+print("El maximo calculado con el Ciclo FOR es ", temperatura_max)
+
+print("El maximo calculado con Python es ", max(temp_dataloger) )
+
+print("El minimo calculado con el Ciclo FOR es ", temperatura_min)
+
+print("El minimo calculado con Python es ", min(temp_dataloger) )
+
 # Al finalizar el bucle debe calcular el promedio como:
 # temperatura_promedio = temperatura_sumatoria / cantidad_temperatuas
+
+temperatura_promedio = temperatura_sumatoria / temperatura_len
+
+print("El promedio calculado es ", temperatura_promedio)
 
 # Corroboren los resultados de temperatura_sumatoria
 # usando la función "sum"
 # función "sum" --> https://www.w3schools.com/python/ref_func_sum.asp
+
+print("La sumatoria usando el Ciclo FOR es ", temperatura_sumatoria)
+
+print("La sumatoria usando Python es ", sum(temp_dataloger))
 
 '''
 Una vez que tengamos nuestros valores correctamente calculados debemos
@@ -83,3 +117,24 @@ https://es.weatherspark.com/y/28981/Clima-promedio-en-Buenos-Aires-Argentina-dur
 # ¿En qué época del año nos encontramos?
 # Imprima el resultado en pantalla
 # Debe utilizar temperatura_max y temperatura_min para definirlo
+
+if   8 <= temperatura_min < 11 and   temperatura_max <= 14:
+
+    print("Estamos en Epoca Invernal")
+
+
+elif   10 <= temperatura_min < 19 and   temperatura_max <= 24:
+
+    print("Estamos en Epoca Primaveral")
+
+elif   11 <= temperatura_min  and  14 < temperatura_max <= 20:
+
+    print("Estamos en Epoca Otoñal")
+
+elif   19 <= temperatura_min  and   20 < temperatura_max <= 28:
+
+    print("Estamos en Epoca Verano")
+
+else:
+
+    print("Las temperaturas maximas ", temperatura_max, " y minimas ", temperatura_min, " estan fueras de los rangos")

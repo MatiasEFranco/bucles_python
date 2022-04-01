@@ -35,3 +35,65 @@ alguno de lo soportados o no es la palabra "FIN".
 
 print("Mi Calculadora (^_^)")
 # Empezar aquí la resolución del ejercicio
+
+while True:
+
+    
+    try:
+
+        numero_1 = float(input('Ingrese el primer número\n'))   
+        
+        numero_2 = float(input('Ingrese el segundo número\n'))
+
+        operacion = input('''Introdusca la operacion a realizar 
+        Suma (+)
+        Resta (-)
+        Multiplicación (*)
+        División (/)
+        Exponente/Potencia (**)
+        Introdusca "Fin" para terminar\n''')  
+    
+    except ValueError:
+        
+        print("El valor introducido es erroneo, vuelva a intentarlo")
+        continue
+
+    if operacion.lower() == "fin":
+
+        break
+
+    elif operacion == "+":
+
+        suma = numero_1 + numero_2
+
+        print("la operacion introducida es Suma entre", numero_1, " y ", numero_2, " y el resultado es ", suma)
+
+    elif operacion == "-":
+
+        resta = numero_1 - numero_2
+
+        print("la operacion introducida es Resta entre", numero_1, " y ", numero_2, " y el resultado es ", resta)
+
+    elif operacion == "*":
+
+        multiplicacion = numero_1 * numero_2
+
+        print("la operacion introducida es Multipliicacion entre", numero_1, " y ", numero_2, " y el resultado es ", multiplicacion)
+
+    elif operacion == "/":
+
+        division = numero_1 / numero_2
+        
+        print("la operacion introducida es Division entre", numero_1, " y ", numero_2, " y el resultado es ", division)
+
+    elif operacion == "**":
+
+        exponente = numero_1 ** numero_2
+        
+        print("la operacion introducida es Esponente/Potencia entre", numero_1, " y ", numero_2, " y el resultado es ", exponente)
+
+    else:
+
+        print("Error, no se introdujo un operador correcto. Vuelva a Intentarlo")
+
+print("Fin del Programa")
